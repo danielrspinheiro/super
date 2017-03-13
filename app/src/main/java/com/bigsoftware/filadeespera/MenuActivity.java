@@ -24,6 +24,7 @@ public class MenuActivity extends AppCompatActivity {
         imgMedico = (ImageView) findViewById(R.id.imgMedico);
 //teste de controle de versão
         //teste ok
+        //teste ok de novo
         MedicoNEG medicoNEG = new MedicoNEG(MenuActivity.this);
 
         medicoNEG.deletarMedicos();
