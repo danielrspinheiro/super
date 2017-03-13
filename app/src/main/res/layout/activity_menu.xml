@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_menu"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.bigsoftware.filadeespera.MenuActivity"
+    android:background="@android:color/background_light">
+
+
+    <TableRow
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:gravity="center_horizontal">
+
+        <ImageView
+            android:layout_weight=".5"
+            app:srcCompat="@drawable/doctor1"
+            android:id="@+id/imgMedico" />
+
+        <ImageView
+            android:layout_weight=".5"
+            app:srcCompat="@drawable/people1"
+            android:id="@+id/imgPaciente" />
+
+    </TableRow>
+    <!-- Linha 2 com 2 colunas -->
+    <TableRow
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:gravity="center_horizontal">
+
+
+
+        <TextView
+            android:id="@+id/TextView07"
+            android:text=""
+            android:layout_weight="1"
+            android:background="#FFFFFF"
+            android:textColor="#000000"
+            android:padding="18dip"
+            android:gravity="center"/>
+
+    </TableRow>
+
+    <TableRow
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:gravity="center_horizontal">
+
+        <ImageView
+            android:layout_weight=".5"
+            app:srcCompat="@drawable/fila"
+            android:id="@+id/imgFila" />
+        <ImageView
+            android:layout_weight=".5"
+            app:srcCompat="@drawable/info"
+            android:id="@+id/imgInfo" />
+
+    </TableRow>
+</TableLayout>
