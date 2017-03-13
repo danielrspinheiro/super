@@ -25,6 +25,8 @@ public class MenuActivity extends AppCompatActivity {
 //teste de controle de versão
         //teste ok
         //teste ok de novo
+        //teste final
+        //teste final ok
         MedicoNEG medicoNEG = new MedicoNEG(MenuActivity.this);
 
         medicoNEG.deletarMedicos();
