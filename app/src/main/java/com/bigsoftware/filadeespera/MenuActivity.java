@@ -22,7 +22,7 @@ public class MenuActivity extends AppCompatActivity {
         setContentView(R.layout.activity_menu);
 
         imgMedico = (ImageView) findViewById(R.id.imgMedico);
-//teste
+
         MedicoNEG medicoNEG = new MedicoNEG(MenuActivity.this);
 
         medicoNEG.deletarMedicos();
