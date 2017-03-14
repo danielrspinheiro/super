@@ -32,13 +32,13 @@ public class CadastroPacienteActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro_paciente);
 
-        editTextNome = (EditText) findViewById(R.id.editTextNome);
+        editTextNome = (EditText) findViewById(R.id.editTextNomePaciente);
         editTextNome.setFilters(new InputFilter[]{new InputFilter.AllCaps()});
         editTextCPF = (EditText) findViewById(R.id.editTextCPF);
-        editTextphone = (EditText) findViewById(R.id.editTextTelefone);
+        editTextphone = (EditText) findViewById(R.id.editTextTelefonePaciente);
         editTextphone.addTextChangedListener(TelefoneMaskUtil.insert(editTextphone));
-        btnCadastrar = (Button) findViewById(R.id.buttonCadastrar);
-        btnExcluir = (Button) findViewById(R.id.buttonExcluir);
+        btnCadastrar = (Button) findViewById(R.id.buttonCadastrarPaciente);
+        btnExcluir = (Button) findViewById(R.id.buttonExcluirPaciente);
 
         Intent it = getIntent();
         idPaciente = it.getIntExtra("id", -1);
