@@ -45,7 +45,7 @@ public class CadastroPacienteActivity extends AppCompatActivity {
         if(idPaciente != -1){
             editTextNome.setText(it.getStringExtra("nome"));
             editTextphone.setText(it.getStringExtra("tel"));
-            editTextCPF.setText(""+it.getIntExtra("cpf", -1));
+            editTextCPF.setText(""+it.getStringExtra("cpf"));
         }else {
             btnExcluir.setEnabled(false);
             btnExcluir.setVisibility(View.GONE);
@@ -69,7 +69,7 @@ public class CadastroPacienteActivity extends AppCompatActivity {
                         PacienteNEG pacienteNEG = new PacienteNEG(getApplication());
                         pacienteNEG.inserirPaciente(editTextNome.getText().toString(),
                                 editTextphone.getText().toString().replaceAll("[^\\d]", ""),
-                                editTextCPF.getText().toString().equals("") ? "0" : editTextCPF.getText().toString());
+                                editTextCPF.getText().toString());
 
                         Toast.makeText(getApplicationContext(), "O paciente " + editTextNome.getText().toString() + " foi cadastrado com sucesso!",
                                 Toast.LENGTH_SHORT).show();
@@ -78,7 +78,7 @@ public class CadastroPacienteActivity extends AppCompatActivity {
                         pacienteNEG.atualizarPaciente(idPaciente,
                                 editTextNome.getText().toString(),
                                 editTextphone.getText().toString().replaceAll("[^\\d]", ""),
-                                editTextCPF.getText().toString().equals("") ? "0" : editTextCPF.getText().toString());
+                                editTextCPF.getText().toString());
 
                         Toast.makeText(getApplicationContext(), "O paciente " + editTextNome.getText().toString() + " foi atualizado com sucesso!",
                                 Toast.LENGTH_SHORT).show();
