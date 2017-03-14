@@ -28,7 +28,7 @@ public class ListaPacienteActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_lista_medico);
+        setContentView(R.layout.activity_lista_paciente);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         edtPesquisar = (EditText) findViewById(R.id.editTextPesquisarPaciente);
