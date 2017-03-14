@@ -32,7 +32,7 @@ public class ListaPacienteActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         edtPesquisar = (EditText) findViewById(R.id.editTextPesquisarPaciente);
-        listViewPaciente = (ListView) findViewById(R.id.listaMedicos);
+        listViewPaciente = (ListView) findViewById(R.id.listaPacientes);
 
 //        PreencherTela();
 
