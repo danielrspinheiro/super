@@ -71,6 +71,7 @@ public class PacienteAdapter extends BaseAdapter {
             cpf = (TextView) view.findViewById(R.id.textViewCPF);
             tel = (TextView) view.findViewById(R.id.textViewTelPaciente);
             id = (TextView) view.findViewById(R.id.textViewIdPaciente);
+            //vai
         }
 
         public void setValues(Paciente paciente) {
