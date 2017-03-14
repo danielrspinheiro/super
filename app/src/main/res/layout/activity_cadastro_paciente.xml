@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
+    <!--xmlns:tools="http://schemas.android.com/tools"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--tools:context="com.bigsoftware.filadeespera.Medico.CadastroPacienteActivity">-->
+
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_item_medico"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.bigsoftware.filadeespera.Medico.ListaMedicoActivity">
+
+
+    <EditText
+        android:id="@+id/editTextNome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/activity_vertical_margin"
+        android:ems="10"
+        android:hint="Nome e Sobrenome"
+        android:inputType = "textCapCharacters" />
+
+
+    <EditText
+        android:id="@+id/editTextTelefone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/activity_vertical_margin"
+        android:ems="10"
+        android:hint="Telefone"
+        android:inputType="phone"/>
+
+    <EditText
+        android:id="@+id/editTextCPF"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/activity_vertical_margin"
+        android:ems="10"
+        android:maxLength="6"
+        android:hint="CRM"
+        android:inputType="number"/>
+
+    <Button
+        android:id="@+id/buttonCadastrar"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/activity_vertical_margin"
+        android:layout_marginTop="10dp"
+        android:background="?attr/colorPrimary"
+        android:text="@string/Salvar" />
+
+    <Button
+        android:id="@+id/buttonExcluir"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/activity_vertical_margin"
+        android:layout_marginTop="10dp"
+        android:background="@android:color/darker_gray"
+        android:text="@string/Excluir" />
+
+
+</TableLayout>
+<!--</android.support.constraint.ConstraintLayout>-->
