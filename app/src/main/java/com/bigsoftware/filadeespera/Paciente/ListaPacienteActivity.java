@@ -66,7 +66,7 @@ public class ListaPacienteActivity extends AppCompatActivity {
                 TextView textViewId = (TextView) view.findViewById(R.id.textViewIdPaciente);
                 TextView textViewNome = (TextView) view.findViewById(R.id.textViewNomePaciente);
                 TextView textViewTelefone = (TextView) view.findViewById(R.id.textViewTelPaciente);
-                TextView textViewCrm = (TextView) view.findViewById(R.id.textViewCRM);
+                TextView textViewCpf = (TextView) view.findViewById(R.id.textViewCPF);
 
 //                Medico medico = new Medico(
 //                        Integer.parseInt(textViewId.getText().toString()),
@@ -78,7 +78,7 @@ public class ListaPacienteActivity extends AppCompatActivity {
                 it.putExtra("id", Integer.parseInt(textViewId.getText().toString()));
                 it.putExtra("nome", textViewNome.getText().toString());
                 it.putExtra("tel", textViewTelefone.getText().toString().replaceAll("[^\\d]", ""));
-                it.putExtra("crm", Integer.parseInt(textViewCrm.getText().toString().replaceAll("CRM ", "")));
+                it.putExtra("cpf", Integer.parseInt(textViewCpf.getText().toString().replaceAll("CRM ", "")));
 
 
 
