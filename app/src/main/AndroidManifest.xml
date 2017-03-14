@@ -15,7 +15,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
         <activity
             android:name=".Medico.ListaMedicoActivity"
             android:label="@string/title_activity_lista_medico"
@@ -27,6 +26,18 @@
         </activity>
         <activity android:name=".Medico.ItemMedicoActivity" />
         <activity android:name=".Medico.CadastroMedicoActivity"></activity>
+        <activity
+            android:name=".Paciente.ListaPacienteActivity"
+            android:label="@string/title_activity_lista_paciente"
+            android:parentActivityName=".MenuActivity"
+            android:theme="@style/appPerson.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.bigsoftware.filadeespera.MenuActivity" />
+        </activity>
+        <activity android:name=".Paciente.ItemPacienteActivity" />
+        <activity android:name=".Paciente.CadastroPacienteActivity"></activity>
     </application>
+    <activity android:name=".MainActivity" />
 
 </manifest>
