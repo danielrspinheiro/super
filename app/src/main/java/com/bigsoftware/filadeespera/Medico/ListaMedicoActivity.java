@@ -33,7 +33,7 @@ public class ListaMedicoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_lista_medico);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        edtPesquisar = (EditText) findViewById(R.id.editTextPesquisar);
+        edtPesquisar = (EditText) findViewById(R.id.editTextPesquisarMedico);
         listViewMedico = (ListView) findViewById(R.id.listaMedicos);
 
 //        PreencherTela();
@@ -65,9 +65,9 @@ public class ListaMedicoActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                TextView textViewId = (TextView) view.findViewById(R.id.textViewId);
-                TextView textViewNome = (TextView) view.findViewById(R.id.textViewNome);
-                TextView textViewTelefone = (TextView) view.findViewById(R.id.textViewTel);
+                TextView textViewId = (TextView) view.findViewById(R.id.textViewIdMedico);
+                TextView textViewNome = (TextView) view.findViewById(R.id.textViewNomeMedico);
+                TextView textViewTelefone = (TextView) view.findViewById(R.id.textViewTelMedico);
                 TextView textViewCrm = (TextView) view.findViewById(R.id.textViewCRM);
 
 //                Medico medico = new Medico(

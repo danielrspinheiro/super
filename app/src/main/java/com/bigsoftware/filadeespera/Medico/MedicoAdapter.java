@@ -72,10 +72,10 @@ public class MedicoAdapter extends BaseAdapter {
         private TextView id;
 
         public ViewHolder(View view) {
-            nome = (TextView) view.findViewById(R.id.textViewNome);
+            nome = (TextView) view.findViewById(R.id.textViewNomeMedico);
             crm = (TextView) view.findViewById(R.id.textViewCRM);
-            tel = (TextView) view.findViewById(R.id.textViewTel);
-            id = (TextView) view.findViewById(R.id.textViewId);
+            tel = (TextView) view.findViewById(R.id.textViewTelMedico);
+            id = (TextView) view.findViewById(R.id.textViewIdMedico);
         }
 
         public void setValues(Medico medico) {
