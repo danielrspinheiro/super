@@ -15,36 +15,37 @@ import com.bigsoftware.filadeespera.R;
 import com.bigsoftware.filadeespera.TelefoneMaskUtil;
 
 import NEG.MedicoNEG;
+import NEG.PacienteNEG;
 
 public class CadastroPacienteActivity extends AppCompatActivity {
 
     private EditText editTextNome;
     private EditText editTextphone;
-    private EditText editTextcrm;
+    private EditText editTextCPF;
     private Button btnCadastrar;
     private Button btnExcluir;
-    private int idMedico = -1;
+    private int idPaciente = -1;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cadastro_medico);
+        setContentView(R.layout.activity_cadastro_paciente);
 
         editTextNome = (EditText) findViewById(R.id.editTextNome);
         editTextNome.setFilters(new InputFilter[]{new InputFilter.AllCaps()});
-        editTextcrm = (EditText) findViewById(R.id.editTextCrm);
+        editTextCPF = (EditText) findViewById(R.id.editTextCPF);
         editTextphone = (EditText) findViewById(R.id.editTextTelefone);
         editTextphone.addTextChangedListener(TelefoneMaskUtil.insert(editTextphone));
         btnCadastrar = (Button) findViewById(R.id.buttonCadastrar);
         btnExcluir = (Button) findViewById(R.id.buttonExcluir);
 
         Intent it = getIntent();
-        idMedico = it.getIntExtra("id", -1);
-        if(idMedico != -1){
+        idPaciente = it.getIntExtra("id", -1);
+        if(idPaciente != -1){
             editTextNome.setText(it.getStringExtra("nome"));
             editTextphone.setText(it.getStringExtra("tel"));
-            editTextcrm.setText(""+it.getIntExtra("crm", -1));
+            editTextCPF.setText(""+it.getIntExtra("cpf", -1));
         }else {
             btnExcluir.setEnabled(false);
             btnExcluir.setVisibility(View.GONE);
@@ -64,22 +65,22 @@ public class CadastroPacienteActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Informe o Telefone Celular", Toast.LENGTH_SHORT).show();
                 }else {
 
-                    if(idMedico == -1) {
-                        MedicoNEG medicoNEG = new MedicoNEG(getApplication());
-                        medicoNEG.inserirMedico(editTextNome.getText().toString(),
+                    if(idPaciente == -1) {
+                        PacienteNEG pacienteNEG = new PacienteNEG(getApplication());
+                        pacienteNEG.inserirPaciente(editTextNome.getText().toString(),
                                 editTextphone.getText().toString().replaceAll("[^\\d]", ""),
-                                editTextcrm.getText().toString().equals("") ? "0" : editTextcrm.getText().toString());
+                                editTextCPF.getText().toString().equals("") ? "0" : editTextCPF.getText().toString());
 
-                        Toast.makeText(getApplicationContext(), "O médico " + editTextNome.getText().toString() + " foi cadastrado com sucesso!",
+                        Toast.makeText(getApplicationContext(), "O paciente " + editTextNome.getText().toString() + " foi cadastrado com sucesso!",
                                 Toast.LENGTH_SHORT).show();
                     }else{
-                        MedicoNEG medicoNEG = new MedicoNEG(getApplication());
-                        medicoNEG.atualizarMedico(idMedico,
+                        PacienteNEG pacienteNEG = new PacienteNEG(getApplication());
+                        pacienteNEG.atualizarPaciente(idPaciente,
                                 editTextNome.getText().toString(),
                                 editTextphone.getText().toString().replaceAll("[^\\d]", ""),
-                                editTextcrm.getText().toString().equals("") ? "0" : editTextcrm.getText().toString());
+                                editTextCPF.getText().toString().equals("") ? "0" : editTextCPF.getText().toString());
 
-                        Toast.makeText(getApplicationContext(), "O médico " + editTextNome.getText().toString() + " foi atualizado com sucesso!",
+                        Toast.makeText(getApplicationContext(), "O paciente " + editTextNome.getText().toString() + " foi atualizado com sucesso!",
                                 Toast.LENGTH_SHORT).show();
                     }
                     finish();
@@ -90,13 +91,13 @@ public class CadastroPacienteActivity extends AppCompatActivity {
         btnExcluir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                excluirMedico();
+                excluirPaciente();
             }
         });
 
     }
 
-    private void excluirMedico() {
+    private void excluirPaciente() {
         AlertDialog alerta;
         //Cria o gerador do AlertDialog
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -107,9 +108,9 @@ public class CadastroPacienteActivity extends AppCompatActivity {
         //define um botão como positivo
         builder.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface arg0, int arg1) {
-                MedicoNEG medicoNEG = new MedicoNEG(getApplication());
-                medicoNEG.deletarMedico(""+idMedico);
-                Toast.makeText(getApplicationContext(), "O médico " + editTextNome.getText().toString() + " foi excluído com sucesso!",
+                PacienteNEG pacienteNEG = new PacienteNEG(getApplication());
+                pacienteNEG.deletarPaciente(""+ idPaciente);
+                Toast.makeText(getApplicationContext(), "O paciente " + editTextNome.getText().toString() + " foi excluído com sucesso!",
                         Toast.LENGTH_SHORT).show();
                 finish();
             }
