@@ -7,3 +7,5 @@
 /build
 /captures
 .externalNativeBuild
+/_mac
+/_linux
