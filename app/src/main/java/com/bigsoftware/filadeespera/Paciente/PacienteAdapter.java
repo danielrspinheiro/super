@@ -63,20 +63,20 @@ public class PacienteAdapter extends BaseAdapter {
 
     private class ViewHolder {
         private TextView nome;
-        private TextView crm;
+        private TextView cpf;
         private TextView tel;
         private TextView id;
 
         public ViewHolder(View view) {
             nome = (TextView) view.findViewById(R.id.textViewNome);
-            crm = (TextView) view.findViewById(R.id.textViewCRM);
+            cpf = (TextView) view.findViewById(R.id.textViewCRM);
             tel = (TextView) view.findViewById(R.id.textViewTel);
             id = (TextView) view.findViewById(R.id.textViewId);
         }
 
         public void setValues(Paciente paciente) {
             nome.setText(paciente.getNome().toUpperCase());
-            crm.setText("CRM "+ String.format("%06d",paciente.getCrm()));
+            cpf.setText("CPF: "+ String.format("%11d",paciente.getCpf()));
             StringBuilder sb = new StringBuilder(paciente.getTelefone())
                     .insert(0,"(")
                     .insert(3,") ")
@@ -103,19 +103,19 @@ public class PacienteAdapter extends BaseAdapter {
                     results.values = arrayListPacientes;
                 } else {
                     //cria um array para armazenar os objetos filtrados.
-                    ArrayList<Paciente> itens_filtrados = new ArrayList<Medico>();
+                    ArrayList<Paciente> itens_filtrados = new ArrayList<Paciente>();
 
                     //percorre toda lista verificando se contem a palavra do filtro na descricao do objeto.
                     for (int i = 0; i < arrayListPacientes.size(); i++) {
-                        Medico medico = arrayListPacientes.get(i);
+                        Paciente paciente = arrayListPacientes.get(i);
 
                         filtro = filtro.toString().toLowerCase();
 
-                        if (medico.getNome().contains(filtro) ||
-                                medico.getTelefone().contains(filtro) ||
-                                (""+medico.getCrm()).contains(filtro) ){
+                        if (paciente.getNome().contains(filtro) ||
+                                paciente.getTelefone().contains(filtro) ||
+                                (""+paciente.getCpf()).contains(filtro) ){
                             //se conter adiciona na lista de itens filtrados.
-                            itens_filtrados.add(medico);
+                            itens_filtrados.add(paciente);
                         }
                     }
                     // Define o resultado do filtro na variavel FilterResults
@@ -128,7 +128,7 @@ public class PacienteAdapter extends BaseAdapter {
             @SuppressWarnings("unchecked")
             @Override
             protected void publishResults(CharSequence constraint, FilterResults results) {
-                lista = (ArrayList<Medico>) results.values; // Valores filtrados.
+                lista = (ArrayList<Paciente>) results.values; // Valores filtrados.
                 notifyDataSetChanged();  // Notifica a lista de alteração
             }
 

@@ -12,19 +12,16 @@ import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
-
 import com.bigsoftware.filadeespera.R;
-
 import java.util.ArrayList;
-
-import NEG.MedicoNEG;
-import Transfer.Medico;
+import NEG.PacienteNEG;
+import Transfer.Paciente;
 
 public class ListaPacienteActivity extends AppCompatActivity {
 
-    private ListView listViewMedico;
-    private PacienteAdapter medicoAdapter;
-    private ArrayList<Medico> arrayListMedicos;
+    private ListView listViewPaciente;
+    private PacienteAdapter pacienteAdapter;
+    private ArrayList<Paciente> arrayListPacientes;
     private EditText edtPesquisar;
 
 
@@ -35,7 +32,7 @@ public class ListaPacienteActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         edtPesquisar = (EditText) findViewById(R.id.editTextPesquisar);
-        listViewMedico = (ListView) findViewById(R.id.listaMedicos);
+        listViewPaciente = (ListView) findViewById(R.id.listaMedicos);
 
 //        PreencherTela();
 
@@ -55,14 +52,14 @@ public class ListaPacienteActivity extends AppCompatActivity {
             }
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                medicoAdapter.getFilter(arrayListMedicos).filter(s.toString());
+                pacienteAdapter.getFilter(arrayListPacientes).filter(s.toString());
             }
             @Override
             public void afterTextChanged(Editable s) {
             }
         });
 
-        listViewMedico.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        listViewPaciente.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
@@ -98,10 +95,10 @@ public class ListaPacienteActivity extends AppCompatActivity {
     }
 
     private void PreencherTela (){
-        MedicoNEG medicoNeg = new MedicoNEG(this);
-        arrayListMedicos = medicoNeg.buscarMedicos();
-        medicoAdapter = new PacienteAdapter(this, arrayListMedicos);
-        listViewMedico.setAdapter(medicoAdapter);
+        PacienteNEG pacienteNeg = new PacienteNEG(this);
+        arrayListPacientes = pacienteNeg.buscarPacientes();
+        pacienteAdapter = new PacienteAdapter(this, arrayListPacientes);
+        listViewPaciente.setAdapter(pacienteAdapter);
     }
 
 }
