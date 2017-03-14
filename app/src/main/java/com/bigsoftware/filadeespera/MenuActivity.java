@@ -7,12 +7,14 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.bigsoftware.filadeespera.Medico.ListaMedicoActivity;
+import com.bigsoftware.filadeespera.Paciente.ListaPacienteActivity;
 
 import NEG.MedicoNEG;
 
 public class MenuActivity extends AppCompatActivity {
 
     private ImageView imgMedico;
+    private ImageView imgPaciente;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,7 +22,7 @@ public class MenuActivity extends AppCompatActivity {
         setContentView(R.layout.activity_menu);
 
         imgMedico = (ImageView) findViewById(R.id.imgMedico);
-
+        imgPaciente = (ImageView) findViewById(R.id.imgPaciente);
 
         MedicoNEG medicoNEG = new MedicoNEG(MenuActivity.this);
 
@@ -57,6 +59,14 @@ public class MenuActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent it = new Intent(MenuActivity.this, ListaMedicoActivity.class);
+                startActivity(it);
+            }
+        });
+
+        imgPaciente.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent it = new Intent(MenuActivity.this, ListaPacienteActivity.class);
                 startActivity(it);
             }
         });
