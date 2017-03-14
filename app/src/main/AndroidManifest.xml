@@ -17,7 +17,7 @@
         </activity>
         <activity android:name=".MainActivity" />
         <activity
-            android:name=".ListaMedicoActivity"
+            android:name=".Medico.ListaMedicoActivity"
             android:label="@string/title_activity_lista_medico"
             android:parentActivityName=".MenuActivity"
             android:theme="@style/appPerson.NoActionBar">
@@ -25,8 +25,8 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.bigsoftware.filadeespera.MenuActivity" />
         </activity>
-        <activity android:name=".ItemMedicoActivity" />
-        <activity android:name=".CadastroMedicoActivity"></activity>
+        <activity android:name=".Medico.ItemMedicoActivity" />
+        <activity android:name=".Medico.CadastroMedicoActivity"></activity>
     </application>
 
 </manifest>

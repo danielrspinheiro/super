@@ -1,4 +1,4 @@
-package com.bigsoftware.filadeespera;
+package com.bigsoftware.filadeespera.Medico;
 
 import android.app.Activity;
 import android.support.v7.widget.RecyclerView;
@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Filter;
 import android.widget.TextView;
+
+import com.bigsoftware.filadeespera.R;
 
 import java.util.ArrayList;
 

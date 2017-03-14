@@ -1,21 +1,22 @@
-package com.bigsoftware.filadeespera;
+package com.bigsoftware.filadeespera.Paciente;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.Editable;
+import android.support.v7.app.AppCompatActivity;
 import android.text.InputFilter;
-import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-import NEG.MedicoNEG;
-import Transfer.Medico;
 
-public class CadastroMedicoActivity extends AppCompatActivity {
+import com.bigsoftware.filadeespera.R;
+import com.bigsoftware.filadeespera.TelefoneMaskUtil;
+
+import NEG.MedicoNEG;
+
+public class CadastroPacienteActivity extends AppCompatActivity {
 
     private EditText editTextNome;
     private EditText editTextphone;
