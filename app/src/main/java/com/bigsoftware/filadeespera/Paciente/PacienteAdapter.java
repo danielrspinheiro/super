@@ -21,7 +21,6 @@ public class PacienteAdapter extends BaseAdapter {
     private Activity activity;
     private LayoutInflater layoutInflater;
     private ViewHolder viewHolder;
-   // private List<Medico> itens_exibicao;
 
     public PacienteAdapter(Activity activity, ArrayList<Paciente> lista) {
         this.activity = activity;
@@ -47,7 +46,7 @@ public class PacienteAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         if (convertView == null) {
             layoutInflater = LayoutInflater.from(activity);
-            convertView = layoutInflater.inflate(R.layout.activity_item_medico, parent, false);
+            convertView = layoutInflater.inflate(R.layout.activity_item_paciente, parent, false);
             viewHolder = new ViewHolder(convertView);
             convertView.setTag(viewHolder);
         } else {
@@ -69,7 +68,7 @@ public class PacienteAdapter extends BaseAdapter {
 
         public ViewHolder(View view) {
             nome = (TextView) view.findViewById(R.id.textViewNome);
-            cpf = (TextView) view.findViewById(R.id.textViewCRM);
+            cpf = (TextView) view.findViewById(R.id.textViewCPF);
             tel = (TextView) view.findViewById(R.id.textViewTel);
             id = (TextView) view.findViewById(R.id.textViewId);
         }
