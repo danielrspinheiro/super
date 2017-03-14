@@ -11,7 +11,7 @@
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/textViewId"
+        android:id="@+id/textViewIdMedico"
         android:layout_height="0px"
         android:layout_width="0px"
         android:textSize="0px"
@@ -24,7 +24,7 @@
     <TableRow >
 
         <TextView
-            android:id="@+id/textViewNome"
+            android:id="@+id/textViewNomeMedico"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight=".1"
@@ -48,7 +48,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight=".9"
-            android:id="@+id/textViewTel"
+            android:id="@+id/textViewTelMedico"
             android:stretchColumns="1"
             android:layout_span="2"/>
     </TableRow>
