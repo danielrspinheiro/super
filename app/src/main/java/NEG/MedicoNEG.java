@@ -53,10 +53,7 @@ public class MedicoNEG {
     }
 
     
-    public ArrayList<Medico> buscarMedicoId(String id) {
-        medico = new Medico(Integer.parseInt(id));
-        return medicoADO.buscarMedicoId(medico);
-    }
+
 
     
     public ArrayList<Medico> buscarMedicoNome(String nome) {

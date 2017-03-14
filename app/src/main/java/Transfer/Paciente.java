@@ -6,34 +6,35 @@ package Transfer;
 
 public class Paciente extends Pessoa {
 
-    private int cpf;
+    private String cpf;
 
     public Paciente(){
 
     }
 
-    public Paciente(int cpf) {
-        this.cpf = cpf;
+    public Paciente(int id){
+        super(id);
     }
 
-    public Paciente(String nome){
-        super(nome);
-    }
-    public Paciente(int id, String nome, String telefone, int cpf) {
+    public Paciente(int id, String nome, String telefone, String cpf) {
         super(id, nome, telefone);
         this.cpf = cpf;
     }
 
-    public Paciente(int id, String nome, int cpf) {
+    public Paciente(int id, String nome, String cpf) {
         super(id, nome);
         this.cpf = cpf;
     }
 
-    public int getCpf() {
+    public Paciente(String nome, String telefone, String cpf) {
+        super(nome, telefone);
+        this.cpf = cpf;
+    }
+    public String getCpf() {
         return cpf;
     }
 
-    public void setCpf(int cpf) {
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 }

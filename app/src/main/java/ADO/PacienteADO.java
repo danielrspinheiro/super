@@ -30,7 +30,7 @@ public class PacienteADO {
                 "                   (id INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 "                    nome VARCHAR," +
                 "                    telefone VARCHAR," +
-                "                    cpf INTEGER)");
+                "                    cpf VARCHAR)");
     }
 
     public void inserirPaciente (Paciente paciente) {
@@ -98,7 +98,7 @@ public class PacienteADO {
             paciente = new Paciente(cursor.getInt(cursor.getColumnIndex("id")),
                     cursor.getString(cursor.getColumnIndex("nome")),
                     cursor.getString(cursor.getColumnIndex("telefone")),
-                    cursor.getInt(cursor.getColumnIndex("cpf")));
+                    cursor.getString(cursor.getColumnIndex("cpf")));
 
             listaPacientes.add(paciente);
             cursor.moveToNext();

@@ -27,7 +27,7 @@ public class PacienteNEG {
 
     
     public void inserirPaciente(String nome, String telefone, String cpf) {
-        paciente = new Paciente(Integer.parseInt(telefone), nome, Integer.parseInt(cpf));
+        paciente = new Paciente(nome, telefone, cpf);
         pacienteADO.inserirPaciente(paciente);
     }
 
@@ -42,25 +42,20 @@ public class PacienteNEG {
     }
     
     public void atualizarPaciente(int id, String nome, String telefone, String cpf) {
-        paciente = new Paciente(id, nome, telefone, Integer.parseInt(cpf));
+        paciente = new Paciente(id, nome, telefone, cpf);
         pacienteADO.atualizarPaciente(paciente);
     }
 
     
     public ArrayList<Paciente> buscarPacienteCPF(String cpf) {
-        paciente = new Paciente(Integer.parseInt(cpf));
+        paciente = new Paciente();
+        paciente.setCpf(cpf);
         return pacienteADO.buscarPacienteCPF(paciente);
     }
 
-    
-    public ArrayList<Paciente> buscarPacienteId(String id) {
-        paciente = new Paciente(Integer.parseInt(id));
-        return pacienteADO.buscarPacienteId(paciente);
-    }
-
-    
     public ArrayList<Paciente> buscarPacienteNome(String nome) {
-        paciente = new Paciente(nome);
+        paciente = new Paciente();
+        paciente.setNome(nome);
         return pacienteADO.buscarPacienteNome(paciente);
     }
 

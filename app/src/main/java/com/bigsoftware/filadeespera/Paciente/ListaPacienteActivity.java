@@ -78,7 +78,7 @@ public class ListaPacienteActivity extends AppCompatActivity {
                 it.putExtra("id", Integer.parseInt(textViewId.getText().toString()));
                 it.putExtra("nome", textViewNome.getText().toString());
                 it.putExtra("tel", textViewTelefone.getText().toString().replaceAll("[^\\d]", ""));
-                it.putExtra("cpf", Integer.parseInt(textViewCpf.getText().toString().replaceAll("CRM ", "")));
+                it.putExtra("cpf", textViewCpf.getText().toString().replaceAll("CPF ", ""));
 
 
 

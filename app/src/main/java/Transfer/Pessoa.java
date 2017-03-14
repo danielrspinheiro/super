@@ -50,7 +50,7 @@ public class Pessoa {
     }
 
     public void setNome(String nome) {
-        this.nome = nome;
+        this.nome = this.nome;
     }
 
     public String getTelefone() {
