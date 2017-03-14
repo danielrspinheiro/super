@@ -1,9 +1,11 @@
-package com.bigsoftware.filadeespera;
+package com.bigsoftware.filadeespera.Paciente;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
-public class ItemMedicoActivity extends AppCompatActivity {
+import com.bigsoftware.filadeespera.R;
+
+public class ItemPacienteActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

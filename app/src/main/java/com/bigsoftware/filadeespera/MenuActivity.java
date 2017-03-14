@@ -5,12 +5,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.Toast;
 
-import java.util.ArrayList;
+import com.bigsoftware.filadeespera.Medico.ListaMedicoActivity;
 
 import NEG.MedicoNEG;
-import Transfer.Medico;
 
 public class MenuActivity extends AppCompatActivity {
 
@@ -23,7 +21,6 @@ public class MenuActivity extends AppCompatActivity {
 
         imgMedico = (ImageView) findViewById(R.id.imgMedico);
 
-        //Teste
 
         MedicoNEG medicoNEG = new MedicoNEG(MenuActivity.this);
 

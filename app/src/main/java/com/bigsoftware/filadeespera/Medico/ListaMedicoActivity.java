@@ -1,4 +1,4 @@
-package com.bigsoftware.filadeespera;
+package com.bigsoftware.filadeespera.Medico;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,6 +12,8 @@ import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.bigsoftware.filadeespera.R;
 
 import java.util.ArrayList;
 import NEG.MedicoNEG;
