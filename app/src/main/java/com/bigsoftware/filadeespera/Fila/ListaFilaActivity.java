@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
 
+import com.bigsoftware.filadeespera.Medico.MedicoAdapter;
 import com.bigsoftware.filadeespera.Paciente.PacienteAdapter;
 import com.bigsoftware.filadeespera.R;
 
@@ -42,7 +43,8 @@ public class ListaFilaActivity extends AppCompatActivity {
         Spinner spinnerMedicos = (Spinner) findViewById(R.id.spinnerMedico);
         ArrayAdapter adapter = new ArrayAdapter(this,
                 android.R.layout.simple_spinner_item, arrayspinnerMedicos);
-        spinnerMedicos.setAdapter(adapter);
+        MedicoAdapter medicoAdapter = new MedicoAdapter(this,arrayspinnerMedicos );
+        spinnerMedicos.setAdapter(medicoAdapter);
 
 
 

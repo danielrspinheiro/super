@@ -70,12 +70,6 @@ public class ListaMedicoActivity extends AppCompatActivity {
                 TextView textViewTelefone = (TextView) view.findViewById(R.id.textViewTelMedico);
                 TextView textViewCrm = (TextView) view.findViewById(R.id.textViewCRM);
 
-//                Medico medico = new Medico(
-//                        Integer.parseInt(textViewId.getText().toString()),
-//                        textViewNome.getText().toString(),
-//                        textViewTelefone.getText().toString(),
-//                        Integer.parseInt(textViewCrm.getText().toString()));
-
                 Intent it = new Intent(ListaMedicoActivity.this, CadastroMedicoActivity.class);
                 it.putExtra("id", Integer.parseInt(textViewId.getText().toString()));
                 it.putExtra("nome", textViewNome.getText().toString());
@@ -93,10 +87,10 @@ public class ListaMedicoActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        PreencherTela();
+        preencherTela();
     }
 
-    private void PreencherTela (){
+    private void preencherTela (){
         MedicoNEG medicoNeg = new MedicoNEG(this);
         arrayListMedicos = medicoNeg.buscarMedicos();
         medicoAdapter = new MedicoAdapter(this, arrayListMedicos);
