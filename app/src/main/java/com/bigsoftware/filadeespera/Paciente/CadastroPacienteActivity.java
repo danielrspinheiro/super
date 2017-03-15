@@ -11,8 +11,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.bigsoftware.filadeespera.CpfCnpjMasks;
 import com.bigsoftware.filadeespera.R;
 import com.bigsoftware.filadeespera.TelefoneMaskUtil;
+import com.bigsoftware.filadeespera.ValidarCPF;
 
 import NEG.MedicoNEG;
 import NEG.PacienteNEG;
@@ -35,6 +37,7 @@ public class CadastroPacienteActivity extends AppCompatActivity {
         editTextNome = (EditText) findViewById(R.id.editTextNomePaciente);
         editTextNome.setFilters(new InputFilter[]{new InputFilter.AllCaps()});
         editTextCPF = (EditText) findViewById(R.id.editTextCPF);
+        editTextCPF.addTextChangedListener(CpfCnpjMasks.insert(editTextCPF));
         editTextphone = (EditText) findViewById(R.id.editTextTelefonePaciente);
         editTextphone.addTextChangedListener(TelefoneMaskUtil.insert(editTextphone));
         btnCadastrar = (Button) findViewById(R.id.buttonCadastrarPaciente);
@@ -63,6 +66,9 @@ public class CadastroPacienteActivity extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "Informe o Nome e Sobrenome", Toast.LENGTH_SHORT).show();
                 }else if (editTextphone.getText().length() < 15){
                     Toast.makeText(getApplicationContext(), "Informe o Telefone Celular", Toast.LENGTH_SHORT).show();
+                }else if ((editTextCPF.getText().length() > 0) &&
+                        (!ValidarCPF.isCPF(editTextCPF.getText().toString().replaceAll("[^\\d]", "")))) {
+                    Toast.makeText(getApplicationContext(), "Informe um CPF válido", Toast.LENGTH_SHORT).show();
                 }else {
 
                     if(idPaciente == -1) {
