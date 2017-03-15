@@ -76,7 +76,11 @@ public class PacienteAdapter extends BaseAdapter {
 
         public void setValues(Paciente paciente) {
             nome.setText(paciente.getNome().toUpperCase());
-            cpf.setText("CPF "+ paciente.getCpf());
+            if (paciente.getCpf().length() == 0) {
+                cpf.setText("");
+            }else {
+                cpf.setText("CPF " + paciente.getCpf());
+            }
             StringBuilder sb = new StringBuilder(paciente.getTelefone())
                     .insert(0,"(")
                     .insert(3,") ")
