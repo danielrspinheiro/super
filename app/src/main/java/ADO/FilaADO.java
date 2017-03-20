@@ -18,9 +18,10 @@ public class FilaADO {
 
     private Paciente paciente;
     private Medico medico;
+    private Fila fila;
     private Context context;
     private BancoDados db;
-    private ArrayList<Fila> listaDeEspera;
+    private ArrayList<Fila> listaFilas;
 
     public FilaADO(Context context) {
         this.context = context;
@@ -76,98 +77,82 @@ public class FilaADO {
         }
     }
 
-
-
-
-
-    public void deletarPaciente (Paciente paciente) {
+    public void deletarFila (Fila fila) {
         try {
-            db.getBanco().execSQL("DELETE FROM paciente WHERE id = ?",
-                    new String[]{""+paciente.getId()});
+            db.getBanco().execSQL("DELETE FROM fila WHERE id = ?",
+                    new String[]{""+fila.getId()});
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    // deletar TODOS os médicos
-    public void deletarPacientes () {
+    // deletar TODOS as filas
+    public void deletarFilas () {
         try {
-            db.getBanco().execSQL("DELETE FROM paciente");
-//            db.getBanco().execSQL("DROP table paciente");
+            db.getBanco().execSQL("DELETE FROM fila");
 
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public void atualizarPaciente(Paciente paciente){
+    public void atualizarAgendamento(Fila fila, Date dataAgendamento){
             try {
-                db.getBanco().execSQL("UPDATE paciente SET nome = ?, telefone = ?, cpf = ? WHERE id = ?",
-                        new String[]{""+paciente.getNome(), paciente.getTelefone(), ""+paciente.getCpf(),
-                        ""+paciente.getId()});
+                db.getBanco().execSQL("UPDATE fila SET dataAgendamento = ? WHERE id = ?",
+                        new String[]{dataAgendamento.toString(), ""+fila.getId() });
             } catch (Exception e) {
                 e.printStackTrace();
             }
     }
 
-    public ArrayList<Paciente> buscarPacienteCPF(Paciente paciente){
+    public ArrayList<Fila> buscarFila(Fila fila){
         try {
 
-            Cursor cursor = db.getBanco().rawQuery("SELECT * FROM paciente WHERE cpf = ?",
-                    new String[]{""+paciente.getCpf()});
+            Cursor cursor = db.getBanco().rawQuery("SELECT * FROM fila WHERE id = ?",
+                    new String[]{""+fila.getId()});
 
 
-            listaPacientes = buscarItens(cursor);
+            listaFilas = buscarItens(cursor);
         }catch (Exception e) {
             e.printStackTrace();
         }finally {
-            return listaPacientes;
+            return listaFilas;
         }
     }
 
-    private ArrayList<Paciente> buscarItens(Cursor cursor){
-        listaPacientes = new ArrayList<Paciente>();
-        //Listar as tarefas
+    private ArrayList<Fila> buscarItens(Cursor cursor){
+        listaFilas = new ArrayList<Fila>();
+        //Listar as filas
         cursor.moveToFirst();
         while (cursor != null) {
-            paciente = new Paciente(cursor.getInt(cursor.getColumnIndex("id")),
-                    cursor.getString(cursor.getColumnIndex("nome")),
-                    cursor.getString(cursor.getColumnIndex("telefone")),
-                    cursor.getString(cursor.getColumnIndex("cpf")));
+            fila = new Fila(cursor.getInt(cursor.getColumnIndex("id")),
+                    cursor.getString(cursor.getColumnIndex("id_paciente")),
+                    cursor.getString(cursor.getColumnIndex("id_medico")),
+                    cursor.getString(cursor.getColumnIndex("data_agendamento")),
+                    cursor.getString(cursor.getColumnIndex("data_atendimento")),
+                    cursor.getString(cursor.getColumnIndex("data_chegada")));
 
-            listaPacientes.add(paciente);
+            listaFilas.add(fila);
             cursor.moveToNext();
         }
-        return listaPacientes;
+        return listaFilas;
     }
 
-    public ArrayList<Paciente> buscarPacienteId(Paciente paciente){
+    public ArrayList<Fila> buscarFilaId(Fila fila){
         try {
 
-            Cursor cursor = db.getBanco().rawQuery("SELECT * FROM paciente WHERE id = ?",
-                    new String[]{""+paciente.getId()});
+            Cursor cursor = db.getBanco().rawQuery("SELECT * FROM fila WHERE id = ?",
+                    new String[]{""+fila.getId()});
 
-            listaPacientes = buscarItens(cursor);
+            listaFilas = buscarItens(cursor);
         }catch (Exception e) {
             e.printStackTrace();
         }finally {
-            return listaPacientes;
+            return listaFilas;
         }
     }
 
-    public ArrayList<Paciente> buscarPacienteNome(Paciente paciente){
-        try {
 
-            Cursor cursor = db.getBanco().rawQuery("SELECT * FROM paciente WHERE nome like ?",
-                    new String[]{""+paciente.getNome()});
-
-            listaPacientes = buscarItens(cursor);
-        }catch (Exception e) {
-            e.printStackTrace();
-        }finally {
-            return listaPacientes;
-        }
-    }
 
     public ArrayList<Paciente> buscarPacienteTelefone(Paciente paciente){
         try {
