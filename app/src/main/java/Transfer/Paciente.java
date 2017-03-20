@@ -21,6 +21,10 @@ public class Paciente extends Pessoa {
         this.cpf = cpf;
     }
 
+    public Paciente( String nome) {
+        super(nome);
+    }
+
     public Paciente(int id, String nome, String cpf) {
         super(id, nome);
         this.cpf = cpf;

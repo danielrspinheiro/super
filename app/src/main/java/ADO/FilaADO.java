@@ -3,8 +3,11 @@ package ADO;
 import android.content.Context;
 import android.database.Cursor;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Locale;
 
 import Transfer.Fila;
 import Transfer.Medico;
@@ -125,12 +128,21 @@ public class FilaADO {
         //Listar as filas
         cursor.moveToFirst();
         while (cursor != null) {
-            fila = new Fila(cursor.getInt(cursor.getColumnIndex("id")),
-                    cursor.getString(cursor.getColumnIndex("id_paciente")),
-                    cursor.getString(cursor.getColumnIndex("id_medico")),
-                    cursor.getString(cursor.getColumnIndex("data_agendamento")),
-                    cursor.getString(cursor.getColumnIndex("data_atendimento")),
-                    cursor.getString(cursor.getColumnIndex("data_chegada")));
+            medico = new Medico();
+            medico.setId(cursor.getInt(cursor.getColumnIndex("id_medico")));
+            paciente = new Paciente();
+            paciente.setId(cursor.getInt(cursor.getColumnIndex("id_paciente")));
+            SimpleDateFormat format = new SimpleDateFormat("dd/MM/YYYY", Locale.getDefault());
+            try {
+                fila = new Fila(cursor.getInt(cursor.getColumnIndex("id")),
+                        medico,
+                        paciente,
+                        format.parse(cursor.getString(cursor.getColumnIndex("data_agendamento"))),
+                        format.parse(cursor.getString(cursor.getColumnIndex("data_atendimento"))),
+                        format.parse(cursor.getString(cursor.getColumnIndex("data_chegada"))));
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
 
             listaFilas.add(fila);
             cursor.moveToNext();
@@ -167,7 +179,7 @@ public class FilaADO {
         }
     }
 
-    public ArrayList<Paciente> buscarFilas(){
+    public ArrayList<Fila> buscarFilas(){
         Cursor cursor = null;
         try {
 
