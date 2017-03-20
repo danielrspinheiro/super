@@ -24,10 +24,10 @@ public class FilaADO {
 
     public FilaADO(Context context) {
         this.context = context;
-        criarTabelaPaciente();
+        criarTabelaFila();
     }
 
-    public void criarTabelaPaciente (){
+    public void criarTabelaFila (){
         db = new BancoDados(context);
         db.getBanco().execSQL("CREATE TABLE IF NOT EXISTS fila " +
                 "                   (id INTEGER PRIMARY KEY AUTOINCREMENT, " +
@@ -40,34 +40,41 @@ public class FilaADO {
                 "                    FOREIGN KEY(id_medico) REFERENCES medico(id) )");
     }
 
-
-//    cadastrarChegada (paciente, medico, data chegada)
-//
-//        cadastrarAgendamento(paciente, medico, data agendamento)
-//
-//            cadastrarAtendimento(paciente, medico data atendimento)
-
     public void inserirFila (Medico medico, Paciente paciente) {
         try {
-            db.getBanco().execSQL("INSERT INTO fila VALUES (NULL, ?,?, NULL, NULL, datetime('now'))",
+            db.getBanco().execSQL("INSERT INTO fila VALUES (NULL, ?,?, NULL, NULL, NULL)",
                     new String[]{""+paciente.getId(), ""+medico.getId()});
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public void inserirAgendamento (Medico medico, Paciente paciente) {
+    public void alterarChegada (Fila fila) {
         try {
-            db.getBanco().execSQL("INSERT INTO fila VALUES (NULL, ?,?,datetime('now'), NULL, NULL)",
-                    new String[]{""+paciente.getId(), ""+medico.getId()});
+            db.getBanco().execSQL("UPDATE fila SET data_chegada = datetime('now') WHERE id = ?",
+                    new String[]{""+fila.getId()} );
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
+    public void alterarAgendamento (Fila fila) {
+        try {
+            db.getBanco().execSQL("UPDATE fila SET data_agendamento = datetime('now') WHERE id = ?",
+                    new String[]{""+fila.getId()} );
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
-
-
+    public void alterarAtendimento (Fila fila) {
+        try {
+            db.getBanco().execSQL("UPDATE fila SET data_atendimento = datetime('now') WHERE id = ?",
+                    new String[]{""+fila.getId()} );
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
 
 
