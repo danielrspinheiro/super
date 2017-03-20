@@ -163,13 +163,25 @@ public class FilaADO {
             return listaFilas;
         }
     }
+/*
+* id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "                    id_paciente INTEGER NOT NULL," +
+                "                    id_medico INTEGER NOT NULL," +
+                "                    data_agendamento DATETIME CURRENT_TIMESTAMP" +
+                "                    data_atendimento DATETIME CURRENT_TIMESTAMP" +
+                "                    data_chegada DATETIME CURRENT_TIMESTAMP" +
+* */
 
-
-
-    public ArrayList<Fila> buscarFilaAgendamento(Date dataAgendamento){
+    public ArrayList<Fila> buscarFilaAgendamento(Fila fila){
         try {
-            Cursor cursor = db.getBanco().rawQuery("SELECT * FROM fila WHERE data_agendamento = ?",
-                    new String[]{dataAgendamento.toString()});
+            Cursor cursor = db.getBanco().rawQuery("SELECT * FROM " +
+                            "                       fila f" +
+                            "                       JOIN" +
+                            "                       paciente p" +
+                            "                       on" +
+                            "                       f.id_paciente = p.id    " +
+                            "                       WHERE f.id_medico = ? and f.data_agendamento = ?",
+                    new String[]{""+fila.getMedico().getId(), fila.getDataAgendamento().toString()});
 
             listaFilas = buscarItens(cursor);
         }catch (Exception e) {

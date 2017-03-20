@@ -6,6 +6,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -18,6 +19,7 @@ import com.bigsoftware.filadeespera.R;
 import java.util.ArrayList;
 
 import NEG.MedicoNEG;
+import Transfer.Fila;
 import Transfer.Medico;
 import Transfer.Paciente;
 
@@ -46,6 +48,12 @@ public class ListaFilaActivity extends AppCompatActivity {
         MedicoAdapter medicoAdapter = new MedicoAdapter(this,arrayspinnerMedicos );
         spinnerMedicos.setAdapter(medicoAdapter);
 
+        spinnerMedicos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+            }
+        });
 
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
