@@ -154,31 +154,31 @@ public class FilaADO {
 
 
 
-    public ArrayList<Paciente> buscarPacienteTelefone(Paciente paciente){
+    public ArrayList<Fila> buscarFilaAgendamento(Date dataAgendamento){
         try {
-            Cursor cursor = db.getBanco().rawQuery("SELECT * FROM paciente WHERE telefone = ?",
-                    new String[]{""+paciente.getTelefone()});
+            Cursor cursor = db.getBanco().rawQuery("SELECT * FROM fila WHERE data_agendamento = ?",
+                    new String[]{dataAgendamento.toString()});
 
-            listaPacientes = buscarItens(cursor);
+            listaFilas = buscarItens(cursor);
         }catch (Exception e) {
             e.printStackTrace();
         }finally {
-            return listaPacientes;
+            return listaFilas;
         }
     }
 
-    public ArrayList<Paciente> buscarPacientes(){
+    public ArrayList<Paciente> buscarFilas(){
         Cursor cursor = null;
         try {
 
-            cursor = db.getBanco().rawQuery("SELECT * FROM paciente", null);
+            cursor = db.getBanco().rawQuery("SELECT * FROM fila", null);
 
-            listaPacientes = buscarItens(cursor);
+            listaFilas = buscarItens(cursor);
         }catch (Exception e) {
             e.printStackTrace();
         }finally {
             cursor.close();
-            return listaPacientes;
+            return listaFilas;
         }
     }
 
