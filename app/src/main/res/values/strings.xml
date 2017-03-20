@@ -10,5 +10,5 @@
     <string name="title_activity_lista_paciente">Lista de Pacientes</string>
     <string name="Salvar">Salvar</string>
     <string name="Excluir">Excluir</string>
-    <string name="title_activity_lista_fila">ListaFilaActivity</string>
+    <string name="title_activity_lista_fila">Fila de Pacientes</string>
 </resources>
