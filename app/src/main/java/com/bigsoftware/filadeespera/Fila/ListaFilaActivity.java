@@ -18,6 +18,7 @@ import com.bigsoftware.filadeespera.R;
 
 import java.util.ArrayList;
 
+import NEG.FilaNEG;
 import NEG.MedicoNEG;
 import Transfer.Fila;
 import Transfer.Medico;
@@ -25,9 +26,9 @@ import Transfer.Paciente;
 
 public class ListaFilaActivity extends AppCompatActivity {
 
-    private ListView listViewPaciente;
+    private ListView listViewListaDeEspera;
    // private FilaAdapter filaAdapter;
-    private ArrayList<Paciente> arrayListFilas;
+    private ArrayList<Paciente> arrayListFilaDeEspera;
     private EditText edtPesquisar;
     private ArrayList<Medico> arrayspinnerMedicos;
 
@@ -37,6 +38,10 @@ public class ListaFilaActivity extends AppCompatActivity {
         setContentView(R.layout.activity_lista_fila);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        listViewListaDeEspera = (ListView)  findViewById(R.id.listaDeEspera);
+
+        preencherFilaDeEspera();
 
         MedicoNEG medicoNEG = new MedicoNEG(getApplicationContext());
         arrayspinnerMedicos = medicoNEG.buscarMedicos();
@@ -64,6 +69,13 @@ public class ListaFilaActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+    }
+
+    private void preencherFilaDeEspera (){
+        FilaNEG filaNeg = new Fila(this);
+        arrayListFilaDeEspera = filaNeg.
+        medicoAdapter = new MedicoAdapter(this, arrayListMedicos);
+        listViewMedico.setAdapter(medicoAdapter);
     }
 
 }
