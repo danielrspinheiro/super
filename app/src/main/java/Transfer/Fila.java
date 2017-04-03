@@ -11,9 +11,9 @@ public class Fila {
     private int id;
     private Medico medico;
     private Paciente paciente;
+    private Date dataAgendamento;
     private Date dataChegada;
     private Date dataAtendimento;
-    private Date dataAgendamento;
 
     public Fila(Date dataChegada) {
         this.dataChegada = dataChegada;

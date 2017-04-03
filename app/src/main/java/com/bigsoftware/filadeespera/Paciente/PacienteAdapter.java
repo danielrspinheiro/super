@@ -9,6 +9,8 @@ import android.widget.Filter;
 import android.widget.TextView;
 import com.bigsoftware.filadeespera.R;
 import java.util.ArrayList;
+
+import Transfer.Fila;
 import Transfer.Paciente;
 
 /**
@@ -22,9 +24,17 @@ public class PacienteAdapter extends BaseAdapter {
     private LayoutInflater layoutInflater;
     private ViewHolder viewHolder;
 
-    public PacienteAdapter(Activity activity, ArrayList<Paciente> lista) {
+    public PacienteAdapter(Activity activity, ArrayList<Paciente> listaPaciente) {
+            this.activity = activity;
+            this.lista = listaPaciente;
+    }
+
+    public PacienteAdapter(ArrayList<Fila> listaFila, Activity activity ) {
         this.activity = activity;
-        this.lista = lista;
+        this.lista = new ArrayList<Paciente>();
+        for(Fila f : listaFila){
+            this.lista.add(f.getPaciente());
+        }
     }
 
     @Override

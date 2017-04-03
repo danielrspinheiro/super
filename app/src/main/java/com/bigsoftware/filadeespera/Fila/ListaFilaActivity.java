@@ -28,7 +28,8 @@ public class ListaFilaActivity extends AppCompatActivity {
 
     private ListView listViewListaDeEspera;
    // private FilaAdapter filaAdapter;
-    private ArrayList<Paciente> arrayListFilaDeEspera;
+    private PacienteAdapter filaPacienteAdapter;
+    private ArrayList<Fila> arrayListFilaDeEspera;
     private EditText edtPesquisar;
     private ArrayList<Medico> arrayspinnerMedicos;
 
@@ -48,17 +49,17 @@ public class ListaFilaActivity extends AppCompatActivity {
 
         //Fazer o adapter para exibir os medicos e guardar o id dos mesmos para adicionar na fila
         Spinner spinnerMedicos = (Spinner) findViewById(R.id.spinnerMedico);
-        ArrayAdapter adapter = new ArrayAdapter(this,
-                android.R.layout.simple_spinner_item, arrayspinnerMedicos);
-        MedicoAdapter medicoAdapter = new MedicoAdapter(this,arrayspinnerMedicos );
+//        ArrayAdapter adapter = new ArrayAdapter(this,
+//                android.R.layout.simple_spinner_dropdown_item, arrayspinnerMedicos);
+        MedicoAdapter medicoAdapter = new MedicoAdapter(this, arrayspinnerMedicos);
         spinnerMedicos.setAdapter(medicoAdapter);
 
-        spinnerMedicos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-            }
-        });
+//        spinnerMedicos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//
+//            }
+//        });
 
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -72,10 +73,10 @@ public class ListaFilaActivity extends AppCompatActivity {
     }
 
     private void preencherFilaDeEspera (){
-        FilaNEG filaNeg = new Fila(this);
-        arrayListFilaDeEspera = filaNeg.
-        medicoAdapter = new MedicoAdapter(this, arrayListMedicos);
-        listViewMedico.setAdapter(medicoAdapter);
+        //FilaNEG filaNeg = new Fila(this);
+        arrayListFilaDeEspera = new ArrayList<Fila>();
+        filaPacienteAdapter = new PacienteAdapter(arrayListFilaDeEspera, this);
+        listViewListaDeEspera.setAdapter(filaPacienteAdapter);
     }
 
 }
